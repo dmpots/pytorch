@@ -1,6 +1,7 @@
 # mypy: allow-untyped-defs
 import logging
-from typing import Any, Dict, Tuple
+
+from typing import Any, cast, Dict, Tuple
 
 import sympy
 
@@ -141,7 +142,7 @@ def addmm_epilogue(dtype, alpha, beta):
     return epilogue
 
 
-def _is_static_problem(layout: Layout) -> Tuple[bool, bool]:
+def _is_static_problem(layout: Layout) -> tuple[bool, bool]:
     """
     Check if input tensors and output layout have static shapes and non-zero sizes.
 
